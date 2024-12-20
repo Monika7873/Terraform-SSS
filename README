@@ -1,0 +1,29 @@
+1. Login your AWS account with your credentials: 
+
+- Windows WSL:
+
+aws configure 
+# enter your access key
+# enter your secret access key 
+# enter your region - in our case the terraform creates in eu-west-1
+# enter json 
+
+# Put your access key and secret access key in the fields required in ec2.tf in order for it to work 
+
+2. Navigate to the folder where the terraform is located in wsl
+
+3. Run the following commands:
+
+ terraform init
+ terraform plan
+ terraform apply
+
+- terraform destroy #only when you want to remove the created terraform 
+
+3. Calling out lambda function 
+
+curl -X POST  -d "Content" -H "filename: file.txt" -H "Content-Type: text/plain" "<api-gateway>/prod/upload" #replace the <api-gateway with your gateway>
+
+4. View the created file in the browser 
+
+https://<public.ip>/s3bucket/ 
